@@ -6,7 +6,7 @@ parseResource = require('raml2code-utils/lib/parse-resource')
 
 
 generator = {}
-generator.template = require("../tmpl/jaxrsResources.hbs")
+generator.template = {'{{fileName}}':require("../tmpl/jaxrsResources.hbs")}
 
 customAdapter = (method, methodParsed) ->
   formData = _.find(methodParsed.args, (arg) ->
@@ -57,10 +57,9 @@ generator.parser = (data) ->
     model.uri = first.uri
     model.className = "#{first.displayName}Resource"
     model.methods = v
-    result = {}
     version =  if data.version then "#{data.version}/"  else ""
-    result["#{version}#{model.className}.groovy"] = model
-    parsed.push result
+    model.fileName = "#{version}#{model.className}.groovy"
+    parsed.push model
   parsed
 
 
