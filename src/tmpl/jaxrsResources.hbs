@@ -6,11 +6,10 @@ import java.util.Map
 {{#if extra.importPojos}}import {{extra.importPojos}}.*{{/if}}
 
 import org.glassfish.jersey.media.multipart.*
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON
 
 @Path("{{{uri}}}")
-@Consumes(APPLICATION_JSON)
-@Produces(APPLICATION_JSON)
+@Consumes("{{mediaType}}")
+@Produces("{{mediaType}}")
 interface {{className}} {
 
 {{#methods}}
