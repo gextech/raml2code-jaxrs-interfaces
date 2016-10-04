@@ -1,6 +1,6 @@
 {
   "name": "raml2code-jaxrs-interfaces",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simple generator of JAX-RS interfaces from RAML",
   "main": "lib/jaxrs-interfaces/index.js",
   "scripts": {
