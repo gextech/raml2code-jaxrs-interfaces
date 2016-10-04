@@ -47,14 +47,16 @@ generator.parser = (data) ->
   )
 
   extra = {}
-  if data.extra
+  if data.extra and  data.extra["package"] 
     extra.package = "#{data.extra.package}.#{data.version}"
+  if data.extra and data.extra["importPojos"]
     extra.importPojos = "#{data.extra.importPojos}.#{data.version}"
   for k,v of resourceGroup
     model = {}
     model.extra = extra
     first = _.first(v)
     model.uri = first.uri
+    model.mediaType = data.mediaType
     model.className = "#{first.displayName}Resource"
     model.methods = v
     version =  if data.version then "#{data.version}/"  else ""

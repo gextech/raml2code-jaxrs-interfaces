@@ -6,7 +6,7 @@ describe('RAML to JAX-RS', function () {
   var raml = "index.raml";
 
   it("should generate a resource interface",
-    test(raml, generator, extra, "groovy/jersey-resources/GatitosResource.groovy", "v1/GatitosResource.groovy"));
+    test(raml, generator, extra, "groovy/jersey-resources/GatitosResource.groovy", "v1/GatitosResource.groovy", true));
 
   it('should generate a resourceById interface',
     test(raml, generator, extra, "groovy/jersey-resources/GatitoByIdResource.groovy", "v1/GatitoByIdResource.groovy"));
