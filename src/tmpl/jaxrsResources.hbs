@@ -18,7 +18,8 @@ interface {{className}} {
    */
   @{{annotation}}{{#if consumes}}
   @Consumes({{consumes}}){{/if}}
-  Response {{{name}}}({{#each args}}{{#if @index}},{{/if}}
+  Response {{{name}}}(
+     @Context UriInfo uriInfo,{{#each args}}{{#if @index}},{{/if}}
     {{#if default}}@DefaultValue("{{default}}"){{/if}} {{{kind}}}{{{classType}}} {{name}}{{/each}});
 
 {{/methods}}
